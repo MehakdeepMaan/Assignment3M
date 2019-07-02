@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Assignment3M;
 using NUnit.Framework;
+using MutationTest;
 
-namespace CalculationTest
+namespace ClassLibraryMutationTest
 {
+
     [TestFixture]
     public class Class1
     {
@@ -29,7 +30,7 @@ namespace CalculationTest
             //Assert
             Assert.AreEqual(expectedResult, actualResult);
         }
-             [Test]
+        [Test]
         public void GetAddition_Input1point5andInput8point3_Returns9point8()
         {
 
@@ -189,7 +190,7 @@ namespace CalculationTest
             double number1 = 4;
             double number2 = 2;
 
-            double expectedResult = number1 / number2;
+            double expectedResult = number1 * number2;
 
             Calculation testCalc = new Calculation(number1, number2);
 
@@ -208,7 +209,7 @@ namespace CalculationTest
             double number1 = 44;
             double number2 = 11;
 
-            double expectedResult = number1 / number2;
+            double expectedResult = number1 * number2;
 
             Calculation testCalc = new Calculation(number1, number2);
 
@@ -227,6 +228,44 @@ namespace CalculationTest
             double number1 = 99;
             double number2 = 3;
 
+            double expectedResult = number1 * number2;
+
+            Calculation testCalc = new Calculation(number1, number2);
+
+            //Act
+            double actualResult = testCalc.GetDivision();
+
+            //Assert
+            Assert.AreEqual(expectedResult, actualResult);
+
+        }
+        [Test]
+        public void GetDivision_Input1andInput3_Returns0point33()
+        {
+
+            //Arrange
+            double number1 = 1;
+            double number2 = 3;
+
+            double expectedResult = Math.Round((number1 / number2), 2);
+
+            Calculation testCalc = new Calculation(number1, number2);
+
+            //Act
+            double actualResult = testCalc.GetDivision();
+
+            //Assert
+            Assert.AreEqual(expectedResult, actualResult);
+
+        }
+        [Test]
+        public void GetDivision_Input2andInput1_Returns2()
+        {
+
+            //Arrange
+            double number1 = 2;
+            double number2 = 1;
+
             double expectedResult = number1 / number2;
 
             Calculation testCalc = new Calculation(number1, number2);
@@ -238,6 +277,27 @@ namespace CalculationTest
             Assert.AreEqual(expectedResult, actualResult);
 
         }
+        [Test]
+        public void GetDivision_Input9andInput3_Returns3()
+        {
+
+            //Arrange
+            double number1 = 9;
+            double number2 = 3;
+
+            double expectedResult = Math.Round(number1 / number2);
+
+            Calculation testCalc = new Calculation(number1, number2);
+
+            //Act
+            double actualResult = testCalc.GetDivision();
+
+            //Assert
+            Assert.AreEqual(expectedResult, actualResult);
+
+        }
+
+
 
     }
 }
